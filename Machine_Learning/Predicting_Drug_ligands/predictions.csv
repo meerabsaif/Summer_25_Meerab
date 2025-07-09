@@ -1,0 +1,15 @@
+file_path,Molecule,actual_label,predicted_label
+non_drug_like_compounds\eicosane.sdf,eicosane,0,0
+drug_like_compounds\diltiazem.sdf,diltiazem,1,1
+drug_like_compounds\aspirin.sdf,aspirin,1,1
+drug_like_compounds\cimetidine.sdf,cimetidine,1,1
+drug_like_compounds\metformin.sdf,metformin,1,1
+non_drug_like_compounds\cholesterol.sdf,cholesterol,0,0
+non_drug_like_compounds\pentadecane.sdf,pentadecane,0,0
+drug_like_compounds\atorvastatin.sdf,atorvastatin,1,1
+non_drug_like_compounds\tetracosane.sdf,tetracosane,0,0
+drug_like_compounds\clonazepam.sdf,clonazepam,1,1
+drug_like_compounds\levothyroxine.sdf,levothyroxine,1,1
+non_drug_like_compounds\tridecane.sdf,tridecane,0,0
+non_drug_like_compounds\heneicosane.sdf,heneicosane,0,0
+drug_like_compounds\acetaminophen.sdf,acetaminophen,1,1
