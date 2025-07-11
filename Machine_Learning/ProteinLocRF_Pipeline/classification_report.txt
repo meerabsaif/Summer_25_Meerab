@@ -1,0 +1,14 @@
+ProteinLocRF Classification Report
+========================================
+
+Accuracy: 0.50
+
+              precision    recall  f1-score   support
+
+   cytoplasm       0.40      0.67      0.50         3
+mitochondria       0.60      0.75      0.67         4
+     nucleus       1.00      0.00      0.00         3
+
+    accuracy                           0.50        10
+   macro avg       0.67      0.47      0.39        10
+weighted avg       0.66      0.50      0.42        10
