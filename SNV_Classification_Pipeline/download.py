@@ -3,7 +3,7 @@ import requests
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+#downloading dataset using a script 
 def download_clinvar(url="https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz", output_file="clinvar.vcf.gz"):
     if os.path.exists(output_file):
         logging.info(f"'{output_file}' already exists. Skipping download.")
