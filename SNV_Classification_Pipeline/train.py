@@ -13,7 +13,7 @@ def train_model(features_df, labels, batch_size=32, lr=1e-3, epochs=5, n_splits=
     logging.info(f"DEBUG: input_dim = {input_dim}, type = {type(input_dim)}")
     
     try:
-        # Initialize k-fold cross-validation
+        #Initializing k-fold cross-validation
         kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
         best_model = None
         best_loss = float('inf')
@@ -22,19 +22,19 @@ def train_model(features_df, labels, batch_size=32, lr=1e-3, epochs=5, n_splits=
         for fold, (train_idx, val_idx) in enumerate(kf.split(features_df)):
             logging.info(f"Starting fold {fold+1}/{n_splits}")
             
-            # Create train and validation datasets
+            #Creating train and validation datasets
             train_dataset = SNVDataset(features_df.iloc[train_idx], labels[train_idx])
             val_dataset = SNVDataset(features_df.iloc[val_idx], labels[val_idx])
             
             train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
             val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
             
-            # Initialize model
+            #Initializing model
             model = SNVClassifier(input_dim).to('cpu')  # Explicitly use CPU for simplicity
             optimizer = torch.optim.Adam(model.parameters(), lr=lr)
             criterion = nn.BCEWithLogitsLoss()
             
-            # Training loop
+            #Training loop
             for epoch in range(epochs):
                 model.train()
                 total_train_loss = 0.0
@@ -52,7 +52,7 @@ def train_model(features_df, labels, batch_size=32, lr=1e-3, epochs=5, n_splits=
                         logging.error(f"Error in training batch {i}: {e}")
                         raise
                 
-                # Validation
+                #Validation
                 model.eval()
                 total_val_loss = 0.0
                 with torch.no_grad():
@@ -64,7 +64,7 @@ def train_model(features_df, labels, batch_size=32, lr=1e-3, epochs=5, n_splits=
                 avg_val_loss = total_val_loss / len(val_loader)
                 logging.info(f"Fold {fold+1}, Epoch {epoch+1}/{epochs}, Train Loss: {total_train_loss/len(train_loader):.4f}, Val Loss: {avg_val_loss:.4f}")
                 
-                # Save best model
+                #saving the best model
                 if avg_val_loss < best_loss:
                     best_loss = avg_val_loss
                     best_model = model
