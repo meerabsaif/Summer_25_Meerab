@@ -5,9 +5,6 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def download_clinvar(url="https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz", output_file="clinvar.vcf.gz"):
-    """
-    Downloads the ClinVar VCF file from the given URL and saves it locally.
-    """
     if os.path.exists(output_file):
         logging.info(f"'{output_file}' already exists. Skipping download.")
         return
