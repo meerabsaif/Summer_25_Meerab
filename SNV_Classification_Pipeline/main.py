@@ -6,7 +6,7 @@ from evaluate import evaluate_model
 from visualize import plot_roc_curve, plot_confusion_matrix
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)')
-
+#main entry point 
 def prepare_data(csv_path, sample_size=None):
     try:
         df = pd.read_csv(csv_path, low_memory=False)
