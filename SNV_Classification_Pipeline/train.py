@@ -13,7 +13,7 @@ def train_model(features_df, labels, batch_size=32, lr=1e-3, epochs=5, n_splits=
     logging.info(f"DEBUG: input_dim = {input_dim}, type = {type(input_dim)}")
     
     try:
-        #Initializing k-fold cross-validation
+        #Initializing k-fold cross-validation: 
         kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
         best_model = None
         best_loss = float('inf')
