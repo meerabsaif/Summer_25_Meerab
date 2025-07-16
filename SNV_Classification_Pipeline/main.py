@@ -27,7 +27,6 @@ def prepare_data(csv_path, sample_size=None):
 if __name__ == "__main__":
     try:
         csv_path = 'data/clinvar_processed.csv'
-        # Use a smaller sample for testing to avoid memory issues
         features_df, labels = prepare_data(csv_path, sample_size=10000)
         model, test_loader, best_params = train_model(features_df, labels, batch_size=64, lr=1e-3, epochs=5, n_splits=3)
         metrics = evaluate_model(model, test_loader)
